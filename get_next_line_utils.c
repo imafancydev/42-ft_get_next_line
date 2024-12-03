@@ -10,3 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <stdlib.h>
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*items;
+	size_t	i;
+
+	i = nmemb * size;
+	if ((nmemb) && (i) && ((i / nmemb) != size))
+		return ((char *) NULL);
+	items = malloc(i);
+	if (!items)
+		return (0);
+	ft_bzero(items, i);
+	return (items);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	char	*str;
+
+	str = (char *)s;
+	while (n > 0)
+	{
+		str[n - 1] = '\0';
+		n--;
+	}
+}
