@@ -6,7 +6,7 @@
 /*   By: laugusto <laugusto@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 00:17:06 by laugusto          #+#    #+#             */
-/*   Updated: 2024/11/16 00:17:07 by laugusto         ###   ########.fr       */
+/*   Updated: 2024/12/04 22:21:06 by laugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,16 @@ void	ft_bzero(void *s, size_t n)
 		str[n - 1] = '\0';
 		n--;
 	}
+}
+
+ssize_t     ft_strlen(const char *str)
+{
+	ssize_t		size;
+
+	size = 0;
+	if (!str)
+		return ((void*)0);
+	while (str[size])
+		size++;
+	return (size);	
 }
