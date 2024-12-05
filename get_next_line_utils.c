@@ -45,8 +45,8 @@ ssize_t     ft_strlen(const char *str)
 	ssize_t		size;
 
 	size = 0;
-	if (!str)
-		return ((void*)0);
+	if (str == NULL)
+		return 0;
 	while (str[size])
 		size++;
 	return (size);	
