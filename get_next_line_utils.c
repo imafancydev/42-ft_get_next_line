@@ -6,12 +6,12 @@
 /*   By: laugusto <laugusto@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 00:17:06 by laugusto          #+#    #+#             */
-/*   Updated: 2024/12/04 22:21:06 by laugusto         ###   ########.fr       */
+/*   Updated: 2024/12/10 15:51:55 by laugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -40,14 +40,14 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-ssize_t     ft_strlen(const char *str)
+ssize_t	ft_strlen(const char *str)
 {
-	ssize_t		size;
+	ssize_t	size;
 
 	size = 0;
 	if (str == NULL)
-		return 0;
+		return (0);
 	while (str[size])
 		size++;
-	return (size);	
+	return (size);
 }
