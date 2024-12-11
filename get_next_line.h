@@ -6,12 +6,15 @@
 /*   By: laugusto <laugusto@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 00:17:08 by laugusto          #+#    #+#             */
-/*   Updated: 2024/12/10 15:51:14 by laugusto         ###   ########.fr       */
+/*   Updated: 2024/12/10 22:38:36 by laugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 # include <stdlib.h>
 # include <unistd.h>
