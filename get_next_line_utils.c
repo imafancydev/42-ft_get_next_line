@@ -6,38 +6,25 @@
 /*   By: laugusto <laugusto@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 00:17:06 by laugusto          #+#    #+#             */
-/*   Updated: 2024/12/10 15:51:55 by laugusto         ###   ########.fr       */
+/*   Updated: 2024/12/10 23:40:52 by laugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
+#include "get_next_line.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strchr(const char *str, int search_str)
 {
-	void	*items;
-	size_t	i;
-
-	i = nmemb * size;
-	if ((nmemb) && (i) && ((i / nmemb) != size))
-		return ((char *) NULL);
-	items = malloc(i);
-	if (!items)
+	if (!str)
 		return (0);
-	ft_bzero(items, i);
-	return (items);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	char	*str;
-
-	str = (char *)s;
-	while (n > 0)
+	while (*str)
 	{
-		str[n - 1] = '\0';
-		n--;
+		if (*str == search_str)
+			return ((char *)str);
+		str++;
 	}
+	if (search_str == '\0')
+		return ((char *)str);
+	return (0);
 }
 
 ssize_t	ft_strlen(const char *str)
