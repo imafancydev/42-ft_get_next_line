@@ -6,21 +6,47 @@
 /*   By: laugusto <laugusto@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 00:17:03 by laugusto          #+#    #+#             */
-/*   Updated: 2024/12/10 15:50:10 by laugusto         ###   ########.fr       */
+/*   Updated: 2024/12/10 22:46:06 by laugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
+#include "get_next_line.h"
 
-int	get_next_line(int fd)
+char	*ft_read_line(int fd, char *line)
 {
-	int		byte_files;
-	char	*char_buffer;
+	char	*buff;
+	int		byte_readed;
 
-	char_buffer = ft_calloc(3 + 1, sizeof(char));
-	if (char_buffer == NULL)
+	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buff)
 		return (NULL);
-	fd = read(fd, char_buffer, 3);
-	return (char_buffer);
+	byte_readed = 1;
+	while (!ft_strchr(line, '\n') && byte_readed != 0)
+	{
+		byte_readed = read(fd, buff, BUFFER_SIZE);
+		if (byte_readed == -1)
+		{
+			free(buff);
+			return (NULL);
+		}
+		buff[byte_readed] = '\0';
+		line = ft_strjoin(line, buff);
+	}
+	free (buff);
+	return (line);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*line;
+	char		*buff;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (0);
+	line = ft_read_line(fd, line);
+	if (!line)
+		return (NULL);
+	buff = ft_line_to_buff(line);
+	line = ft_read_new_line(line);
+	return (buff);
 }
