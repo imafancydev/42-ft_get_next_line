@@ -6,7 +6,7 @@
 /*   By: laugusto <laugusto@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 00:17:08 by laugusto          #+#    #+#             */
-/*   Updated: 2024/12/10 22:38:36 by laugusto         ###   ########.fr       */
+/*   Updated: 2024/12/10 23:41:45 by laugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 #  define BUFFER_SIZE 42
 # endif
 
+# include <stdarg.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-void	ft_bzero(void *s, size_t n);
-void	*ft_calloc(size_t nmemb, size_t size);
 ssize_t	ft_strlen(const char *str);
+char	*ft_strchr(const char *str, int search_str);
 
 #endif
